@@ -1,0 +1,58 @@
+openapi: 3.0.0
+info:
+  title: User API
+  version: 1.0.0
+paths:
+  /users/{userID}/update_name:
+    put:
+      summary: ユーザの名前を更新する
+      operationId: UpdateUserName
+      parameters:
+        - name: userID
+          in: path
+          description: ユーザID
+          required: true
+          schema:
+            type: string
+            example: example-company
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserNameRequest'
+      responses:
+        200:
+          description: 更新成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateUserNameResponse'
+components:
+  schemas:
+    UpdateUserNameRequest:
+      type: object
+      x-go-name: UpdateUserNameRequest
+      properties:
+        name:
+          type: string
+          description: 更新後の名前
+          example: "example-name"
+      required:
+        - name
+    UpdateUserNameResponse:
+      type: object
+      x-go-name: UpdateUserNameResponse
+      properties:
+        id:
+          type: string
+          description: ユーザID
+          example: example-company
+          x-go-name: ID
+        name:
+          type: string
+          description: 更新後の名前
+          example: "example-name"
+      required:
+        - id
+        - name
