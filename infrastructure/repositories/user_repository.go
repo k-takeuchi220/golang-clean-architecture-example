@@ -24,11 +24,11 @@ func (r *UserRepository) GetUser(ctx context.Context, id string) (*entities.User
 		return nil, err
 	}
 
-	return entities.FromDataModel(user), nil
+	return user.ToDomainModel(), nil
 }
 
 func (r *UserRepository) UpdateUser(ctx context.Context, user *entities.User) error {
-	model := user.ToDataModel()
+	model := models.FromDomainModel(user)
 	_, err := r.db.ExecContext(ctx, "UPDATE users SET name = ? WHERE id = ?", model.Name, model.ID)
 	return err
 }

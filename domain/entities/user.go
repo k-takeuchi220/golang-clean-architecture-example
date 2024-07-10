@@ -1,23 +1,14 @@
 package entities
 
-import "golang-clean-architecture-example/domain/models"
-
 type User struct {
 	id   string
 	name string
 }
 
-func FromDataModel(m *models.User) *User {
+func NewUser(id, name string) *User {
 	return &User{
-		id:   m.ID,
-		name: m.Name,
-	}
-}
-
-func (u *User) ToDataModel() *models.User {
-	return &models.User{
-		ID:   u.id,
-		Name: u.name,
+		id:   id,
+		name: name,
 	}
 }
 
