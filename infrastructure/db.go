@@ -14,7 +14,7 @@ func NewDB() (*sql.DB, error) {
 	dbPassword := "password"
 	dbName := "exampledb"
 	dbHost := "127.0.0.1"
-	dbPort := "3391"
+	dbPort := "3306"
 
 	dataSourceName := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true", dbUser, dbPassword, dbHost, dbPort, dbName)
 	db, err := sql.Open("mysql", dataSourceName)
