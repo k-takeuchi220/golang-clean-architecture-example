@@ -4,8 +4,8 @@ import (
 	"context"
 	"database/sql"
 	"golang-clean-architecture-example/domain/entities"
-	"golang-clean-architecture-example/domain/models"
 	"golang-clean-architecture-example/domain/repositories"
+	"golang-clean-architecture-example/infrastructure/models"
 )
 
 type UserRepository struct {
